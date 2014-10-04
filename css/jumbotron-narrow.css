@@ -48,7 +48,7 @@ body {
   text-align: center;
 }
 
-.center-that-crap .messagesDiv {
+.messagesDiv {
   font-family: 'Inconsolata';
   text-align: left;
   font-size: 1.2em;
