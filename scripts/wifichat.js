@@ -18,8 +18,27 @@ myDataRef.on('child_added', function(snapshot) {
 });
 
 function displayChatMessage(name, text) {
-  $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+  var testImgRegex = /^https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png|bmp)$/i;
+  if (testImgRegex.test(text)) {
+    imgtag = '<img id="image" src=\"' + text + '\">';
+    // $(imgtag).prepend($('<em/>').text(name+': ')).appendTo('#messagesDiv');
+    $('<div/>').html(imgtag).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+  }
+  else {
+    $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+  }
   $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
 };
+
+function isValidImageUrlCallback(url, answer) {
+  alert(url + ': ' + answer);
+}
+
+function isValidImageUrl(url, callback) {
+  var img = new Image();
+  img.onerror = function() { callback(url, false); }
+  img.onload =  function() { callback(url, true); }
+  img.src = url
+}
 
 });
