@@ -1,4 +1,4 @@
-var myDataRef = new Firebase('https://wifichat.firebaseio.com/');
+var myDataRef = new Firebase('https://icechat.firebaseio.com/');
 
 $('#messageInput').keypress(function (e) {
     if (e.keyCode == 13) {
