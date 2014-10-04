@@ -36,3 +36,8 @@ function isValidImageUrl(url, callback) {
   img.onload =  function() { callback(url, true); }
   img.src = url
 }
+
+var bot = Object.create(Bot);
+
+bot.init('swagbot');
+bot.sayHello();

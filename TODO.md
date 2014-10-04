@@ -1,1 +1,2 @@
 - Limit image size
+- detect URLs and make clickable
