@@ -3,13 +3,19 @@
   <head>
   <meta charset="utf-8">
   <title>wifichat</title>
-  </head>
   <script data-main="scripts/wifichat" src="scripts/require.js"></script>
-<body>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  </head>
 
-<div id='messagesDiv'></div>
-<input type='text' id='nameInput' placeholder='Name'>
-<input type='text' id='messageInput' placeholder='Message'>
+  <body>
+    <div class="container">
+    <div id='messagesDiv'></div>
+    <form class="form-inline" role="form">
+      <div class="form-group">
+        <input type='text' class="form-control" id='nameInput' placeholder='Name'>
+        <input type='text' class="form-control" id='messageInput' placeholder='Message'>
+      </div>
+    </form>
 
-</body>
+  </body>
 </html>
