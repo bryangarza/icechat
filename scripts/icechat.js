@@ -1,4 +1,5 @@
 var myDataRef = new Firebase('https://icechat.firebaseio.com/');
+var converter = new Showdown.converter();
 
 $('#messageInput').keypress(function (e) {
     if (e.keyCode == 13) {
@@ -21,7 +22,9 @@ function displayChatMessage(name, text) {
     $('<div/>').html(imgtag).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
   }
   else {
-    $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+    html = converter.makeHtml(text);
+    console.log(html);
+    $('<div/>').html(html).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
   }
   $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
 };
