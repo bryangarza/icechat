@@ -1,32 +1,40 @@
 <html>
   <head>
-  <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+    <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   </head>
-<body>
 
-<div id='messagesDiv'></div>
-<input type='text' id='nameInput' placeholder='Name'>
-<input type='text' id='messageInput' placeholder='Message'>
-<script>
-var myDataRef = new Firebase('https://wifichat.firebaseio.com/');
-$('#messageInput').keypress(function (e) {
-    if (e.keyCode == 13) {
-    var name = $('#nameInput').val();
-    var text = $('#messageInput').val();
-    myDataRef.push({name: name, text: text});
-    $('#messageInput').val('');
-    }
-    });
-myDataRef.on('child_added', function(snapshot) {
-    var message = snapshot.val();
-    displayChatMessage(message.name, message.text);
-    });
-function displayChatMessage(name, text) {
-  $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
-  $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-};
-</script>
+  <body>
+    <div class="container">
+    <div id='messagesDiv'></div>
+    <form class="form-inline" role="form">
+      <div class="form-group">
+        <input type='text' class="form-control" id='nameInput' placeholder='Name'>
+        <input type='text' class="form-control" id='messageInput' placeholder='Message'>
+      </div>
+    </form>
 
-</body>
+    <script>
+      var myDataRef = new Firebase('https://wifichat.firebaseio.com/');
+      $('#messageInput').keypress(function (e) {
+      if (e.keyCode == 13) {
+      var name = $('#nameInput').val();
+      var text = $('#messageInput').val();
+      myDataRef.push({name: name, text: text});
+      $('#messageInput').val('');
+      }
+      });
+      myDataRef.on('child_added', function(snapshot) {
+      var message = snapshot.val();
+      displayChatMessage(message.name, message.text);
+      });
+      function displayChatMessage(name, text) {
+      $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+      $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+    </script>
+    </div>
+  </body>
 </html>
