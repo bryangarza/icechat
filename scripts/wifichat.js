@@ -1,6 +1,3 @@
-require (["firebase", "jquery"],
-function ( firebase,   $ ) {
-
 var myDataRef = new Firebase('https://wifichat.firebaseio.com/');
 
 $('#messageInput').keypress(function (e) {
@@ -21,7 +18,6 @@ function displayChatMessage(name, text) {
   var testImgRegex = /^https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png|bmp)$/i;
   if (testImgRegex.test(text)) {
     imgtag = '<img id="image" src=\"' + text + '\">';
-    // $(imgtag).prepend($('<em/>').text(name+': ')).appendTo('#messagesDiv');
     $('<div/>').html(imgtag).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
   }
   else {
@@ -40,5 +36,3 @@ function isValidImageUrl(url, callback) {
   img.onload =  function() { callback(url, true); }
   img.src = url
 }
-
-});
