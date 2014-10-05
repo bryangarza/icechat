@@ -3,6 +3,7 @@ body {
   padding-top: 70px;
   padding-bottom: 20px;
   background-color:#ededed;
+
 }
 
 img {
@@ -12,10 +13,12 @@ img {
 .navbar{
   background-color:#3d9cc3;
   border:0px;
+
 }
 
 .navbar-header {
   padding: 20px;
+
 }
 
 .navbar-inverse .navbar-brand {
@@ -24,21 +27,26 @@ img {
   font-family: 'Squada One', cursive;
   color:white;
   float:none;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .navbar-inverse .navbar-brand:hover {
   color:#48F1FF;
+
 }
 
 .container-narrow {
   margin: 30px 0;
+
 }
 
 .container {
   font-family: 'Inconsolata' !important;
-  text-align: left;
+
   font-size: 1.2em;
   color: #333
+
 }
 
 /* Responsive: Portrait tablets and up */
@@ -52,6 +60,7 @@ img {
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
+
   }
 }
 
