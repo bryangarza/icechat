@@ -10,24 +10,34 @@ $('#messageInput').keypress(function (e) {
   if (e.keyCode == 13) {
     var name = $('#nameInput').val();
     var text = $('#messageInput').val();
-    if (text.charAt(0) === '!') {
-      splittext = text.split(' ');
-      if (splittext[0] === '!set') {
-        execSet();
-      } else if (splittext[0] === '!get') {
-        execGet();
-      }
-      displayChatMessage(name, text);
-    } else {
-      myDataRef.push({name: name, text: text});
-    }
+    delegateForm(name, text, true);
     $('#messageInput').val('');
   }
 });
 
+function delegateForm(name, text, push) {
+  if (text.charAt(0) === '!') {
+    splittext = text.split(' ');
+    if (splittext[0] === '!set') {
+      execSet();
+    } else if (splittext[0] === '!get') {
+      if (push) {
+        myDataRef.push({name: name, text: text});
+      } else {
+        execGet();
+      }
+    }
+    displayChatMessage(name, text);
+  } else {
+    if (push) {
+      myDataRef.push({name: name, text: text});
+    }
+  }
+}
+
 myDataRef.on('child_added', function(snapshot) {
     var message = snapshot.val();
-    displayChatMessage(message.name, message.text);
+    delegateForm(message.name, message.text, false);
 });
 
 function displayChatMessage(name, text) {
