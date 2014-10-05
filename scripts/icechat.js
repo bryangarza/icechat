@@ -1,13 +1,28 @@
 var myDataRef = new Firebase('https://icechat.firebaseio.com/');
 var converter = new Showdown.converter();
+var myBotRef = new Firebase('https://icechat-bot.firebaseio.com/');
+
+var botName = 'guyatbooth';
+var splittext = ''
+botSayHello();
 
 $('#messageInput').keypress(function (e) {
-    if (e.keyCode == 13) {
+  if (e.keyCode == 13) {
     var name = $('#nameInput').val();
     var text = $('#messageInput').val();
-    myDataRef.push({name: name, text: text});
-    $('#messageInput').val('');
+    if (text.charAt(0) === '!') {
+      splittext = text.split(' ');
+      if (splittext[0] === '!set') {
+        execSet();
+      } else if (splittext[0] === '!get') {
+        execGet();
+      }
+      displayChatMessage(name, text);
+    } else {
+      myDataRef.push({name: name, text: text});
     }
+    $('#messageInput').val('');
+  }
 });
 
 myDataRef.on('child_added', function(snapshot) {
@@ -16,17 +31,20 @@ myDataRef.on('child_added', function(snapshot) {
 });
 
 function displayChatMessage(name, text) {
+  isImg = false;
+  //TODO: fix this, creating variable every time
   var testImgRegex = /^https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png|bmp)$/i;
   if (testImgRegex.test(text)) {
     imgtag = '<img id="image" src=\"' + text + '\">';
     $('<div/>').html(imgtag).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+    isImg = true;
   }
-  else {
+  if (isImg === false) {
     html = converter.makeHtml(text);
     console.log(html);
     $('<div/>').html(html).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
+    $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
   }
-  $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
 };
 
 function isValidImageUrlCallback(url, answer) {
@@ -40,7 +58,19 @@ function isValidImageUrl(url, callback) {
   img.src = url
 }
 
-var bot = Object.create(Bot);
+function botSayHello (){
+  displayChatMessage(botName, 'Hello my name is ' + botName);
+}
 
-bot.init('swagbot');
-bot.sayHello();
+function execSet() {
+  myBotRef.child(splittext[1]).set(splittext.slice(2).join(' '));
+}
+
+function execGet() {
+  console.log('Split text is: ' + splittext);
+  console.log(myBotRef.val());
+  // myBotRef.once('value', function(nameSnapshot) {
+  //   var val = nameSnapshot.val();
+  //   console.out(val);
+  // });
+}
