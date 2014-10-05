@@ -22,9 +22,9 @@
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
   </head>
 
@@ -39,20 +39,22 @@
     </div>
 
     <div class="container">
-
-      <div class="center-that-crap">
+      <div class="col-md-1"></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-8" style="text-align: center;">
 
         <div id="messagesDiv"><u><b>Don't be a jerk.</b><u></div>
-        <form id="chatInput" class="form-inline" role="form" style="padding-top:15px">
-        <div class="form-group">
-          <input type='text' class="form-control" id='nameInput' placeholder='Name'  data-placement="bottom"  data-toggle="tooltip" data-original-title="Some tooltip 2!" required>
-          <input type='text' class="form-control" id='messageInput' placeholder='Message'  data-toggle="tooltip" data-placement="bottom" data-original-title="Some tooltip 2!" required>
+        <form id="chatInput" class="form" role="form" style="padding-top:15px">
+          <div class="form-group">
+            <input type='text' class="form-control" id='nameInput' placeholder='Name'  data-placement="bottom"  data-toggle="tooltip" data-original-title="Some tooltip 2!" required>
+            <textarea type='text' class="form-control" rows="4" id='messageInput' placeholder='Message'  data-toggle="tooltip" data-placement="bottom" data-original-title="Some tooltip 2!" required></textarea>
 
-        </div>
+          </div>
         </form>
-
       </div>
 
+      <div class="col-md-1"></div>
+      <div class="col-md-1"></div>
     </div> <!-- /container -->
 
     <script>
