@@ -17,14 +17,13 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles -->
-    <link href="css/jumbotron-narrow.css" rel="stylesheet">
     <link href="css/icechat.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
   </head>
 
@@ -40,20 +39,11 @@
 
     <div class="container">
 
-      <div class="center-that-crap">
+      <div id="messagesDiv"></div>
+      <input type='text' id='nameInput' placeholder='Name'>
+      <input type='text' id='messageInput' placeholder='Message'>
 
-        <div id="messagesDiv"><u><b>Don't be a jerk.</b><u></div>
-        <form id="chatInput" class="form-inline" role="form" style="padding-top:15px">
-        <div class="form-group">
-          <input type='text' class="form-control" id='nameInput' placeholder='Name'>
-          <input type='text' class="form-control" id='messageInput' placeholder='Message'>
-
-        </div>
-        </form>
-
-      </div>
-
-    </div> <!-- /container -->
+    </div>
 
     <script>
       $(document).ready(function() {
@@ -61,7 +51,6 @@
       });
     </script>
 
-    <script src="scripts/bot.js"></script>
     <script src="scripts/icechat.js"></script>
 
   </body>
