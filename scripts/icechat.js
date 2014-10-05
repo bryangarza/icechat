@@ -21,10 +21,10 @@ function delegateForm(name, text, push) {
     if (splittext[0] === '!set') {
       execSet();
     } else if (splittext[0] === '!get') {
-      if (push) {
-        myDataRef.push({name: name, text: text});
-      } else {
+      if (!push) {
         execGet();
+      } else {
+        myDataRef.push({name: name, text: text});
       }
     }
     displayChatMessage(name, text);
