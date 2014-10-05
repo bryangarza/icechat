@@ -1,3 +1,74 @@
+/* Space out content a bit */
+body {
+  padding-top: 70px;
+  padding-bottom: 20px;
+  background-color:#ededed;
+}
+
 img {
-	max-height: 450px;
+  max-height: 450px;
+}
+
+.navbar{
+  background-color:#3d9cc3;
+  border:0px;
+}
+
+.navbar-header {
+  padding: 20px;
+}
+
+.navbar-inverse .navbar-brand {
+  font-size:2em;
+  text-transform: uppercase;
+  font-family: 'Squada One', cursive;
+  color:white;
+  float:none;
+}
+
+.navbar-inverse .navbar-brand:hover {
+  color:#48F1FF;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+.center-that-crap {
+  padding: 30px 10px;
+  text-align: center;
+}
+
+.messagesDiv {
+  font-family: 'Inconsolata' !important;
+  text-align: left;
+  font-size: 1.2em;
+  color: #333
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
 }
