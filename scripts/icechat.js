@@ -4,7 +4,6 @@ var myBotRef = new Firebase('https://icechat-bot.firebaseio.com/');
 
 var botName = 'guyatbooth';
 var splittext = ''
-botSayHello();
 
 $('#messageInput').keypress(function (e) {
 	if (e.keyCode == 13) {
@@ -72,10 +71,6 @@ function isValidImageUrl(url, callback) {
   img.onerror = function() { callback(url, false); }
   img.onload =  function() { callback(url, true); }
   img.src = url
-}
-
-function botSayHello (){
-  displayChatMessage(botName, 'Hello my name is ' + botName);
 }
 
 function execSet() {
