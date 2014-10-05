@@ -12,6 +12,10 @@
   </script>
 
   <link rel="import" href="bower_components/font-roboto/roboto.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
 
   <style>
   html,body {
@@ -36,9 +40,21 @@
 
 </head>
 
-<body unresolved>
+  <body fullbleed vertical layout unresolved>
 
-  <firebase-element id="base" on-data-change="{{dataChange}}" data="{{data}}" location="https://icechat.firebaseio.com/"></firebase-element>
+    <core-header-panel flex>
+      <core-toolbar id="mainheader">
+        <paper-icon-button id="navicon" 
+          icon="arrow-back"></paper-icon-button>
+        <span flex>Title</span>
+        <paper-icon-button id="searchbutton" 
+          icon="search"></paper-icon-button>
+      </core-toolbar>
+      <p>Sample content.</p>
+      <p>Sample content.</p>
+    </core-header-panel>
+  
+  </body>
   
   <script>
     
