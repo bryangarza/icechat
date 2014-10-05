@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <title>Icechat | Polymer Edition</title>
+
+  <meta name="viewport" 
+  content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <script src="bower_components/platform/platform.js"></script>
+
+  <link href='http://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="import" href="bower_components/font-roboto/roboto.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+
+  <style>
+  html,body {
+    height: 100%;
+    margin: 0;
+    background-color: #E5E5E5;
+    font-family: 'RobotoDraft', sans-serif;
+  }
+  .container {
+    width: 80%;
+    margin: 50px auto;
+  }
+  @media (min-width: 481px) {
+    #tabs {
+      width: 200px;
+    }
+    .container {
+      width: 400px;
+    }
+  }
+  core-header-panel {
+    background: white;
+  }
+  core-toolbar {
+    background-color: #3d9cc3;
+    color:white;
+    font-family:'Squada One',sans-serif;
+    text-transform: uppercase;
+  }
+  p {
+    margin: 20px;
+    padding: 80px 20px;
+    border-radius: 20px;
+    background-color: #eee;
+  }
+  </style>
+
+</head>
+
+  <body fullbleed vertical layout unresolved>
+
+    <core-header-panel flex>
+      <core-toolbar id="mainheader">
+        <paper-icon-button id="navicon" icon="arrow-back"><a href="icechat/.."></a></paper-icon-button>
+        <span flex><h3>Icechat</h3></span>
+      </core-toolbar>
+      <p>Sample content.</p>
+      <p>Sample content.</p>
+    </core-header-panel>
+
+  </body>
+  
+  <script>
+    
+  </script>
+</body>
+
+</html>

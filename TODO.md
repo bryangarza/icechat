@@ -1,9 +1,6 @@
 - [x] Limit image size
 - [ ] detect URLs and make clickable
+- [ ] disallow blank name input field
 - [ ] timestamps
-- [ ] chatbot with NLP (wit.ai)
-- [ ] authentication
-- [ ] PMs
-- [ ] redesign
-- [ ] ideas
-- [ ] choosing next APIs
+- [ ] chatbot with NLP
+- [ ] local chatrooms?

@@ -4,41 +4,26 @@ var myBotRef = new Firebase('https://icechat-bot.firebaseio.com/');
 
 var botName = 'guyatbooth';
 var splittext = ''
+botSayHello();
 
 $('#messageInput').keypress(function (e) {
-	if (e.keyCode == 13) {
-		var name = $('#nameInput').val();
-		var text = $('#messageInput').val();
-		if (validateForm()){
-			if (text.charAt(0) === '!') {
-				splittext = text.split(' ');
-				if (splittext[0] === '!set') {
-					execSet();
-				} else if (splittext[0] === '!get') {
-					execGet();
-				}
-				displayChatMessage(name, text);
-			} else {
-				myDataRef.push({name: name, text: text});
-			}
-			$('#messageInput').val('');
-		}
-	}
+  if (e.keyCode == 13) {
+    var name = $('#nameInput').val();
+    var text = $('#messageInput').val();
+    if (text.charAt(0) === '!') {
+      splittext = text.split(' ');
+      if (splittext[0] === '!set') {
+        execSet();
+      } else if (splittext[0] === '!get') {
+        execGet();
+      }
+      displayChatMessage(name, text);
+    } else {
+      myDataRef.push({name: name, text: text});
+    }
+    $('#messageInput').val('');
+  }
 });
-
-function validateForm() {
-	var name = $('#nameInput').val();
-	var text = $('#messageInput').val();
-	// validate names and messages
-	if (name === '' ){
-		$('#nameInput').tooltip();
-		return false;
-	} else if (text === ''){
-		$('#messageInput').tooltip();
-		return false;
-	}
-	return true;
-}
 
 myDataRef.on('child_added', function(snapshot) {
     var message = snapshot.val();
@@ -71,6 +56,10 @@ function isValidImageUrl(url, callback) {
   img.onerror = function() { callback(url, false); }
   img.onload =  function() { callback(url, true); }
   img.src = url
+}
+
+function botSayHello (){
+  displayChatMessage(botName, 'Hello my name is ' + botName);
 }
 
 function execSet() {
