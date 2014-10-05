@@ -16,11 +16,10 @@ $('#messageInput').keypress(function (e) {
 });
 
 function delegateAll(name, text, from) {
-  if (text.charAt(0) === '!') {
+  if (text.charAt(0) === '!')
     delegateCommand(name, text, from);
-  } else {
+  else
     delegatePlaintext(name, text, from);
-  }
 }
 
 function delegateCommand(name, text, from) {
@@ -29,27 +28,23 @@ function delegateCommand(name, text, from) {
     displayChatMessage(name, text);
     execSet();
   } else if (splittext[0] === '!get') {
-    if (from === 'messageInput') {
-      myDataRef.push({name: name, text: text});
-    }
-    else {
-      displayChatMessage(name, text);
-      execGet();
-    }
-  } else if (splittext[0] === '!list') {
+      if (from === 'messageInput')
+        myDataRef.push({name: name, text: text});
+      else {
+        displayChatMessage(name, text);
+        execGet();
+      }
+  } else if (splittext[0] === '!list')
     execList();
-  }
 }
 
 function delegatePlaintext(name, text, from) {
   console.log("About to display from delegatePlaintext()");
   console.log("Values: "+ name + ' ' + text);
-  if (from === 'messageInput') {
+  if (from === 'messageInput')
     myDataRef.push({name: name, text: text});
-  }
-  else {
+  else
     displayChatMessage(name, text);
-  }
 }
 
 myDataRef.on('child_added', function(snapshot) {
