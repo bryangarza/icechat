@@ -36,6 +36,8 @@ function delegateCommand(name, text, from) {
       displayChatMessage(name, text);
       execGet();
     }
+  } else if (splittext[0] === '!list') {
+    execList();
   }
 }
 
@@ -85,5 +87,13 @@ function execSet() {
 function execGet() {
   myBotRef.child(splittext[1]).on('value', function(snapshot) {
     displayChatMessage(botName, snapshot.val());
+  });
+}
+
+function execList() {
+  myBotRef.on('child_added', function (snapshot) {
+    var alias = snapshot.name();
+    var command = snapshot.val();
+    displayChatMessage(botName, alias + ': ' + command);
   });
 }
