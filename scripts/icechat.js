@@ -2,54 +2,64 @@ var myDataRef = new Firebase('https://icechat.firebaseio.com/');
 var converter = new Showdown.converter();
 var myBotRef = new Firebase('https://icechat-bot.firebaseio.com/');
 
+var testImgRegex = /^https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png|bmp)$/i;
 var botName = 'guyatbooth';
 var splittext = ''
-botSayHello();
 
 $('#messageInput').keypress(function (e) {
   if (e.keyCode == 13) {
     var name = $('#nameInput').val();
     var text = $('#messageInput').val();
-    delegateForm(name, text, true);
+    delegateAll(name, text, 'messageInput');
     $('#messageInput').val('');
   }
 });
 
-function delegateForm(name, text, push) {
+function delegateAll(name, text, from) {
   if (text.charAt(0) === '!') {
-    splittext = text.split(' ');
-    if (splittext[0] === '!set') {
-      execSet();
-    } else if (splittext[0] === '!get') {
-      if (!push) {
-        execGet();
-      } else {
-        myDataRef.push({name: name, text: text});
-      }
-    }
-    displayChatMessage(name, text);
+    delegateCommand(name, text, from);
   } else {
-    if (push) {
+    delegatePlaintext(name, text, from);
+  }
+}
+
+function delegateCommand(name, text, from) {
+  splittext = text.split(' ');
+  if (splittext[0] === '!set') {
+    displayChatMessage(name, text);
+    execSet();
+  } else if (splittext[0] === '!get') {
+    if (from === 'messageInput') {
       myDataRef.push({name: name, text: text});
+    }
+    else {
+      displayChatMessage(name, text);
+      execGet();
     }
   }
 }
 
+function delegatePlaintext(name, text, from) {
+  console.log("About to display from delegatePlaintext()");
+  console.log("Values: "+ name + ' ' + text);
+  if (from === 'messageInput') {
+    myDataRef.push({name: name, text: text});
+  }
+  else {
+    displayChatMessage(name, text);
+  }
+}
+
 myDataRef.on('child_added', function(snapshot) {
-    var message = snapshot.val();
-    delegateForm(message.name, message.text, false);
+  var message = snapshot.val();
+  delegateAll(message.name, message.text, 'child_added');
 });
 
 function displayChatMessage(name, text) {
-  isImg = false;
-  //TODO: fix this, creating variable every time
-  var testImgRegex = /^https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png|bmp)$/i;
   if (testImgRegex.test(text)) {
     imgtag = '<img id="image" src=\"' + text + '\">';
     $('<div/>').html(imgtag).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
-    isImg = true;
-  }
-  if (isImg === false) {
+  } else {
     html = converter.makeHtml(text);
     console.log(html);
     $('<div/>').html(html).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
@@ -66,10 +76,6 @@ function isValidImageUrl(url, callback) {
   img.onerror = function() { callback(url, false); }
   img.onload =  function() { callback(url, true); }
   img.src = url
-}
-
-function botSayHello (){
-  displayChatMessage(botName, 'Hello my name is ' + botName);
 }
 
 function execSet() {
