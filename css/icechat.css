@@ -13,12 +13,12 @@ img {
 .navbar{
   background-color:#3d9cc3;
   border:0px;
-  text-align: center;
+
 }
 
 .navbar-header {
   padding: 20px;
-  text-align: center;
+
 }
 
 .navbar-inverse .navbar-brand {
@@ -27,17 +27,18 @@ img {
   font-family: 'Squada One', cursive;
   color:white;
   float:none;
-  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .navbar-inverse .navbar-brand:hover {
   color:#48F1FF;
-  text-align: center;
+
 }
 
 .container-narrow {
   margin: 30px 0;
-  text-align: center;
+
 }
 
 .container {
@@ -45,7 +46,7 @@ img {
 
   font-size: 1.2em;
   color: #333
-  text-align: center;
+
 }
 
 /* Responsive: Portrait tablets and up */
@@ -59,7 +60,7 @@ img {
   /* Space out the masthead */
   .header {
     margin-bottom: 30px;
-    text-align: center;
+
   }
 }
 
