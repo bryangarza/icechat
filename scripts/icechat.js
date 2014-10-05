@@ -67,10 +67,7 @@ function execSet() {
 }
 
 function execGet() {
-  console.log('Split text is: ' + splittext);
-  console.log(myBotRef.val());
-  // myBotRef.once('value', function(nameSnapshot) {
-  //   var val = nameSnapshot.val();
-  //   console.out(val);
-  // });
+  myBotRef.child(splittext[1]).on('value', function(snapshot) {
+    displayChatMessage(botName, snapshot.val());
+  });
 }
