@@ -1,3 +1,6 @@
-- Limit image size
-- detect URLs and make clickable
-- disallow blank name input field
+- [x] Limit image size
+- [ ] detect URLs and make clickable
+- [ ] disallow blank name input field
+- [ ] timestamps
+- [ ] chatbot with NLP
+- [ ] local chatrooms?

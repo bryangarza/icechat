@@ -1,67 +1,78 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Icechat</title>
+<head>
 
-    <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <title>Icechat | Polymer Edition</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <meta name="viewport" 
+  content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="bower_components/platform/platform.js"></script>
 
-    <!-- Custom styles -->
-    <link href="css/jumbotron-narrow.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  <link rel="import" href="bower_components/font-roboto/roboto.html">
+  <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+  <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+  <link rel="import" href="bower_components/core-icons/core-icons.html">
+  <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
 
-  </head>
+  <style>
+  html,body {
+    height: 100%;
+    margin: 0;
+    background-color: #E5E5E5;
+    font-family: 'RobotoDraft', sans-serif;
+  }
+  .container {
+    width: 80%;
+    margin: 50px auto;
+  }
+  @media (min-width: 481px) {
+    #tabs {
+      width: 200px;
+    }
+    .container {
+      width: 400px;
+    }
+  }
+  core-header-panel {
+    background: white;
+  }
+  core-toolbar {
+    background-color: #3d9cc3;
+    color:white;
+    font-family:'Squada One',sans-serif;
+    text-transform: uppercase;
+  }
+  p {
+    margin: 20px;
+    padding: 80px 20px;
+    border-radius: 20px;
+    background-color: #eee;
+  }
+  </style>
 
-  <body>
+</head>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" style="border-radius:none !important" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Icechat</a>
-        </div>
-      </div>
-    </div>
+  <body fullbleed vertical layout unresolved>
 
-    <div class="container">
-
-      <div class="center-that-crap">
-
-        <div id="messagesDiv"><u><b>Don't be a jerk.</b><u></div>
-        <form id="chatInput" class="form-inline" role="form" style="padding-top:15px">
-        <div class="form-group">
-          <input type='text' class="form-control" id='nameInput' placeholder='Name'>
-          <input type='text' class="form-control" id='messageInput' placeholder='Message'>
-
-        </div>
-        </form>
-
-      </div>
-
-    </div> <!-- /container -->
-
-    <script>
-      $(document).ready(function() {
-      $('html, body').animate({ scrollTop: $(document).height() }, 1000);
-      });
-    </script>
-
-    <script src="scripts/bot.js"></script>
-    <script src="scripts/icechat.js"></script>
+    <core-header-panel flex>
+      <core-toolbar id="mainheader">
+        <paper-icon-button id="navicon" icon="arrow-back"><a href="icechat/.."></a></paper-icon-button>
+        <span flex><h3>Icechat</h3></span>
+      </core-toolbar>
+      <p>Sample content.</p>
+      <p>Sample content.</p>
+    </core-header-panel>
 
   </body>
+  
+  <script>
+    
+  </script>
+</body>
 
 </html>
