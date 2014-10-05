@@ -39,8 +39,6 @@ function delegateCommand(name, text, from) {
 }
 
 function delegatePlaintext(name, text, from) {
-  console.log("About to display from delegatePlaintext()");
-  console.log("Values: "+ name + ' ' + text);
   if (from === 'messageInput')
     myDataRef.push({name: name, text: text});
   else
@@ -58,7 +56,6 @@ function displayChatMessage(name, text) {
     $('<div/>').html(imgtag).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
   } else {
     html = converter.makeHtml(text);
-    console.log(html);
     $('<div/>').html(html).prepend($('<em/>').text(name+': ')).appendTo($('#messagesDiv'));
     $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
   }
