@@ -9,3 +9,4 @@
 - [ ] auth
 - [ ] break things into separate files
 - [ ] abstract the UI layer away from the logic layer
+- [ ] add a counter on the title tag like FB does: `Facebook (3)`
