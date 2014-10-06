@@ -4,3 +4,8 @@
 - [ ] timestamps
 - [ ] chatbot with NLP
 - [ ] local chatrooms?
+- [ ] replacing gifs with html5 video -- using gfycat
+  (http://gfycat.com/about#embed + http://gfycat.com/api)
+- [ ] auth
+- [ ] break things into separate files
+- [ ] abstract the UI layer away from the logic layer
