@@ -29,6 +29,8 @@ img {
   float:none;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .navbar-inverse .navbar-brand:hover {
