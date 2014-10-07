@@ -2,7 +2,7 @@
 body {
   padding-top: 70px;
   padding-bottom: 20px;
-  background-color:#ededed;
+  background-color:#66cbff;
 
 }
 
@@ -11,7 +11,7 @@ img {
 }
 
 .navbar{
-  background-color:#3d9cc3;
+  background-color:#4b88f6;
   border:0px;
 
 }
@@ -43,9 +43,8 @@ img {
 
 .container {
   font-family: 'Inconsolata' !important;
-
-  font-size: 1.2em;
-  color: #333
+  font-size: 1.3em;
+  color: #2f2f2f
 
 }
 
