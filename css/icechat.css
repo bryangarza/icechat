@@ -2,7 +2,7 @@
 body {
   padding-top: 70px;
   padding-bottom: 20px;
-  background-color:#66cbff;
+  background-color:#fff;
 
 }
 
@@ -11,7 +11,7 @@ img {
 }
 
 .navbar{
-  background-color:#4b88f6;
+  background-color:#fff;
   border:0px;
 
 }
@@ -24,7 +24,7 @@ img {
 .navbar-inverse .navbar-brand {
   font-size:2em;
   text-transform: uppercase;
-  font-family: 'Squada One', cursive;
+  font-family: 'Inconsolata', sans serif;
   color:white;
   float:none;
   margin-left: auto;
@@ -42,9 +42,9 @@ img {
 }
 
 .container {
-  font-family: 'Inconsolata' !important;
+  font-family: 'Inconsolata' sans serif;
   font-size: 1.3em;
-  color: #2f2f2f
+  color: #000
 
 }
 
