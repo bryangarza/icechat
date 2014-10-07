@@ -25,14 +25,14 @@ img {
   font-size:2em;
   text-transform: uppercase;
   font-family: 'Inconsolata', sans serif;
-  color:white;
+  color:111;
   float:none;
   margin-left: auto;
   margin-right: auto;
 }
 
 .navbar-inverse .navbar-brand:hover {
-  color:#48F1FF;
+  color:#555;
 
 }
 
