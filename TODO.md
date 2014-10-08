@@ -6,8 +6,7 @@
 - [ ] local chatrooms?
 - [ ] replacing gifs with html5 video -- using gfycat
   (http://gfycat.com/about#embed + http://gfycat.com/api)
-- [ ] auth
-  (https://github.com/firebase/firebase-simple-login/tree/master/docs/v1)
+- [ ] auth (https://www.firebase.com/docs/web/guide/user-auth.html)
 - [ ] show user online/offline/idle
   (https://www.firebase.com/blog/2013-06-17-howto-build-a-presence-system.html)
 - [ ] break things into separate files
